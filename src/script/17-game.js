@@ -14,6 +14,8 @@ let fallen=false;
 let first=true;
 let end=false; 
 let total_points=[];
+let first1=true;
+let pauzirano=false;
 
 
 class App extends Application {
@@ -70,17 +72,39 @@ class App extends Application {
     
         this.pointerlockchangeHandler = this.pointerlockchangeHandler.bind(this);
         document.addEventListener('pointerlockchange', this.pointerlockchangeHandler);
+        var myAudio=document.createElement("audio");
+        myAudio.src="../common/audio/background_techno.mp3";
         document.addEventListener("click", ()=> {
             this.canvas.requestPointerLock();
+            if(first1){
+                myAudio.play();
+                first1=false;
+            }
+            
+        });
+        document.addEventListener("keypress", (e)=> {
+            if(e.key=="m"){
+                if(pauzirano){
+                    myAudio.play();
+                    pauzirano=false;
+                }else{
+                    myAudio.pause();
+                    pauzirano=true;
+                }
+            }
+            
         });
         this.clock();
         
-        this.load('loadingscreen.json');
+        this.load('scene.json');
+        
         
 
 
     }
     async load(uri) {
+        
+        
         if(fallen){
             this.click_to_start();
             document.addEventListener("click", ()=> {
@@ -825,6 +849,8 @@ class App extends Application {
         let level=document.getElementById("level");
         let time=document.getElementById("counter");
         let controls=document.getElementById("instructions");
+        let music=document.getElementById("mute");
+        music.style.display="block";
         controls.style.display="block";
         time.style.display="block";
         greenc.style.display="block";
@@ -837,6 +863,8 @@ class App extends Application {
         let level=document.getElementById("level");
         let time=document.getElementById("counter");
         let controls=document.getElementById("instructions");
+        let music=document.getElementById("mute");
+        music.style.display="none";
         controls.style.display="none";
         time.style.display="none";
         greenc.style.display="none";

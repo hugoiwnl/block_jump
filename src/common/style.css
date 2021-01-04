@@ -262,3 +262,11 @@ a.back:hover {
     color: greenyellow;
     -webkit-text-stroke: 0.2px red;
 }
+#mute{
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    font-size: 20px;
+    color:white;
+    font-family: 'Oswald', sans-serif;
+}

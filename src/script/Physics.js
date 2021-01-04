@@ -1,12 +1,14 @@
 const vec3 = glMatrix.vec3;
 const mat4 = glMatrix.mat4;
-
+var zeleniAudio=document.createElement("audio");
+zeleniAudio.src="../common/audio/drop_003.ogg";
 export default class Physics {
 
     constructor(scene) {
         this.scene = scene;
         this.skupljeniZeleni=0;
         this.skupljeniZlatni=0;
+        
     }
 
     update(dt) {
@@ -75,11 +77,13 @@ export default class Physics {
             let c1=a.transform;
             mat4.fromTranslation(c1,[-10,-10,0],c1);
             this.skupljeniZeleni+=1;
+            zeleniAudio.play();
         }
         if(b.scale[0]==0.1 && b.scale[1]==0.1 && b.scale[2]==0.1){
             let c1=b.transform;
             mat4.fromTranslation(c1,[-10,-10,0],c1);
             this.skupljeniZeleni+=1;
+            zeleniAudio.play();
         }
 
         // Move node A minimally to avoid collision.
