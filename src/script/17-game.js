@@ -73,7 +73,7 @@ class App extends Application {
         this.pointerlockchangeHandler = this.pointerlockchangeHandler.bind(this);
         document.addEventListener('pointerlockchange', this.pointerlockchangeHandler);
         var myAudio=document.createElement("audio");
-        myAudio.src="../common/audio/background_techno.mp3";
+        myAudio.src="../common/audio/background-techno1.mp3";
         document.addEventListener("click", ()=> {
             this.canvas.requestPointerLock();
             if(first1){
