@@ -1,4 +1,4 @@
-import Application from '../../common/Application.js';
+import Application from '../common/Application.js';
 
 import Renderer from './Renderer.js';
 import Physics from './Physics.js';
@@ -222,7 +222,6 @@ class App extends Application {
     }
 
     update() {
-        console.log(total_points);
         let gc=document.getElementById("green_counter");
         let goldc=document.getElementById("gold_counter");
         let level=document.getElementById("level");

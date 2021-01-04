@@ -1038,22 +1038,22 @@
       
     ],
     "textures": [
-      "../../common/images/water4.jpg",
-      "../../common/images/brick1.webp",
-      "../../common/images/stone.webp",
-      "../../common/images/gold.jpg",
-      "../../common/images/wood.webp",
-      "../../common/images/redsky.webp",
-      "../../common/images/green1.jpg",
-      "../../common/images/bamboo.webp",
-      "../../common/images/bluewood.jpg"
+      "../common/images/water4.jpg",
+      "../common/images/brick1.webp",
+      "../common/images/stone.webp",
+      "../common/images/gold.jpg",
+      "../common/images/wood.webp",
+      "../common/images/redsky.webp",
+      "../common/images/green1.jpg",
+      "../common/images/bamboo.webp",
+      "../common/images/bluewood.jpg"
   
     ],
     "meshes": [
-      "../../common/models/cube.json",
-      "../../common/models/pyramid.json",
-      "../../common/models/floor.json",
-      "../../common/models/cube1.json"
+      "../common/models/cube.json",
+      "../common/models/pyramid.json",
+      "../common/models/floor.json",
+      "../common/models/cube1.json"
   
   
     ]
