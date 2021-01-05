@@ -2,6 +2,8 @@ const vec3 = glMatrix.vec3;
 const mat4 = glMatrix.mat4;
 var zeleniAudio=document.createElement("audio");
 zeleniAudio.src="../common/audio/drop_003.ogg";
+var zlatniAudio=document.createElement("audio");
+zlatniAudio.src="../common/audio/objective_achieved.ogg";
 export default class Physics {
 
     constructor(scene) {
@@ -66,11 +68,13 @@ export default class Physics {
             let c1=a.transform;
             mat4.fromTranslation(c1,[-10,-10,0],c1);
             this.skupljeniZlatni+=1;
+            zlatniAudio.play();
         }
         if(b.scale[0]==0.4 && b.scale[1]==0.4){
             let c1=b.transform;
             mat4.fromTranslation(c1,[-10,-10,0],c1);
             this.skupljeniZlatni+=1;
+            zlatniAudio.play();
         }
         // green
         if(a.scale[0]==0.1 && a.scale[1]==0.1 && a.scale[2]==0.1){

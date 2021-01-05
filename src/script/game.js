@@ -16,6 +16,9 @@ let end=false;
 let total_points=[];
 let first1=true;
 let pauzirano=false;
+let pao_audio=false;
+let nivo_audio=false;
+let kraj_audio=false;
 
 
 class App extends Application {
@@ -96,7 +99,7 @@ class App extends Application {
         });
         this.clock();
         
-        this.load('scene.json');
+        this.load('loadingscreen.json');
         
         
 
@@ -292,6 +295,7 @@ class App extends Application {
             }
         }
         if(scena==2){
+            //this.myAudio.pause();
             if(this.moving_pyramid1){
                 let p1=this.moving_pyramid1.transform;
                 mat4.fromTranslation(p1,[this.moving5,4.4,-16]);
@@ -385,6 +389,8 @@ class App extends Application {
                 if(this.camera.translation[1]<0.5){
                     fallen=true;
                     this.load('scene.json');
+                    this.fall_audio();
+                    pao_audio=true;
                     
 
                 }
@@ -456,6 +462,8 @@ class App extends Application {
                 if(this.camera.translation[1]<0.5){
                     fallen=true;
                     this.load('scene1.json');
+                    this.fall_audio();
+                    pao_audio=true;
                 }
 
                 if(this.physics){
@@ -572,6 +580,8 @@ class App extends Application {
                 if(this.camera.translation[1]<0.5){
                     fallen=true;
                     this.load('scene2.json');
+                    this.fall_audio();
+                    pao_audio=true;
                 }
             }
             if(this.physics){
@@ -674,6 +684,8 @@ class App extends Application {
                     this.load('scene1.json');                
                     this.level_end();   
                     window=true;
+                    this.levelup_audio();
+                    nivo_audio=true;
                 }else{
                     this.level_not_end();
                 }
@@ -684,6 +696,8 @@ class App extends Application {
                     this.load('scene2.json');
                     this.level_end();
                     window=true;
+                    this.levelup_audio();
+                    nivo_audio=true;
                 }
                 if(window){
                     document.addEventListener("click", ()=> {
@@ -699,6 +713,10 @@ class App extends Application {
                     //this.canvas.exitPointerLock();
                     this.game_over();
                     end=true;
+                    if(!kraj_audio){
+                        this.finish_audio();
+                        kraj_audio=true;
+                    }
 
                 }
 
@@ -734,6 +752,30 @@ class App extends Application {
         
     }
     
+    fall_audio(){
+        if(!pao_audio){
+            var myAudio=document.createElement("audio");
+            myAudio.src="../common/audio/game_over.ogg";
+            myAudio.play();
+        }
+        
+    }
+
+    levelup_audio(){
+        if(!nivo_audio){
+            var myAudio=document.createElement("audio");
+            myAudio.src="../common/audio/level_up.ogg";
+            myAudio.play();
+        }
+        
+    }
+
+    finish_audio(){
+        var myAudio=document.createElement("audio");
+        myAudio.src="../common/audio/congratulations.ogg";
+        myAudio.play();
+    }
+
     level_end(){
         let window=document.getElementById("end_level");
         window.style.display="block";
@@ -803,6 +845,8 @@ class App extends Application {
     clicked(){
         let click_start=document.getElementById("click_start");
         click_start.style.display="none";
+        pao_audio=false;
+        nivo_audio=false;
     }
     
     clock(){
