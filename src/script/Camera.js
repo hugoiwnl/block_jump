@@ -61,6 +61,7 @@ export default class Camera extends Node {
                 let framenow=c.translation[1];
                 frames.push(framenow);
             }
+            /*
             if(!jump_end){
                 if(!pritisnut){
                     last_frame=c.translation[1];
@@ -80,9 +81,27 @@ export default class Camera extends Node {
                     last_frame=null;
                 }
                 
+            }*/
+            
+        }
+        if(!jump_end){
+            if(!pritisnut){
+                last_frame=c.translation[1];
+                pritisnut=true;
+                this.gravity=0.08;
+            }else{
+                if(c.translation[1]>last_frame+0.9){
+                    jump_end=true;
+                    this.gravity=-0.04;
+                }
+            }
+        }else{
+            if(frames[frames.length-1].toFixed(2)==frames[frames.length-2].toFixed(2)){
+                jump_end=false;
+                pritisnut=false;
+                last_frame=null;
             }
         }
-        
 
         // 2: update velocity
         vec3.scaleAndAdd(c.velocity, c.velocity, acc, dt * c.acceleration);
