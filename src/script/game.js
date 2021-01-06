@@ -730,7 +730,7 @@ class App extends Application {
                 }
             }
             if(scena==0){
-                if(this.movecam<-6.9){
+                if(this.movecam<-9.9){
                     this.load("scene.json");
                 }
                 this.level_not_end();
@@ -878,7 +878,7 @@ class App extends Application {
 
     clock1(){
         var start=document.getElementById("start_game");
-        var totalSeconds=5;
+        var totalSeconds=10;
 
         setInterval(setTime,1000);
 

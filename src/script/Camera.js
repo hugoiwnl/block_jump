@@ -96,7 +96,7 @@ export default class Camera extends Node {
                 }
             }
         }else{
-            if(frames[frames.length-1].toFixed(2)==frames[frames.length-2].toFixed(2)){
+            if(frames[frames.length-1].toFixed(2)==frames[frames.length-2].toFixed(2)  && frames[frames.length-2].toFixed(2)==frames[frames.length-3].toFixed(2)){
                 jump_end=false;
                 pritisnut=false;
                 last_frame=null;
